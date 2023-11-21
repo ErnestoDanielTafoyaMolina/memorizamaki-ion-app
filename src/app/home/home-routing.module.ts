@@ -1,12 +1,46 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomePage } from './home.page';
+import { HiraganaPage } from '../pages/hiragana/hiragana.page';
+import { HiraganaBoardPage } from '../pages/hiragana-board/hiragana-board.page';
+import { KatakanaPage } from '../pages/katakana/katakana.page';
+import { KatakanaBoardPage } from '../pages/katakana-board/katakana-board.page';
+import { SigninPage } from '../pages/signin/signin.page';
+import { SignupPage } from '../pages/signup/signup.page';
 
 const routes: Routes = [
   {
     path: '',
     component: HomePage,
+  },
+
+
+  //rutas de uso para la app
+  {
+    path: 'hiragana',
+    component: HiraganaPage,
+  },
+  {
+    path:'hiragana-board',
+    component:HiraganaBoardPage,
+  },
+  {
+    path: 'katakana',
+    component: KatakanaPage,
+  },
+  {
+    path:'katakana-board',
+    component:KatakanaBoardPage,
+  },
+  {
+    path:'signin',
+    component:SigninPage,
+  },
+  {
+    path:'signup',
+    component:SignupPage
   }
+
 ];
 
 @NgModule({
