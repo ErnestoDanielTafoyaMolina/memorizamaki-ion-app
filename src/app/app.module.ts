@@ -13,13 +13,17 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-     AuthGuard,
-     {
-      provide:HTTP_INTERCEPTORS,
-      useClass:TokenInterceptorService,
-      multi:true,
-     }
+  providers: [
+    AuthGuard,
+    {
+     provide:HTTP_INTERCEPTORS,
+     useClass:TokenInterceptorService,
+     multi:true,
+    },
+    {
+       provide: RouteReuseStrategy,
+       useClass: IonicRouteStrategy
+    },
     ],
   bootstrap: [AppComponent],
 })
