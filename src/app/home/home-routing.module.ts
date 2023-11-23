@@ -7,11 +7,13 @@ import { KatakanaPage } from '../pages/katakana/katakana.page';
 import { KatakanaBoardPage } from '../pages/katakana-board/katakana-board.page';
 import { SigninPage } from '../pages/signin/signin.page';
 import { SignupPage } from '../pages/signup/signup.page';
+import { AuthGuard } from '../guards/auth.guard';
 
 const routes: Routes = [
   {
     path: '',
     component: HomePage,
+    canActivate:[AuthGuard]
   },
 
 
@@ -19,18 +21,22 @@ const routes: Routes = [
   {
     path: 'hiragana',
     component: HiraganaPage,
+    canActivate:[AuthGuard]
   },
   {
     path:'hiragana-board',
     component:HiraganaBoardPage,
+    canActivate:[AuthGuard]
   },
   {
     path: 'katakana',
     component: KatakanaPage,
+    canActivate:[AuthGuard]
   },
   {
     path:'katakana-board',
     component:KatakanaBoardPage,
+    canActivate:[AuthGuard]
   },
   {
     path:'signin',
@@ -39,7 +45,8 @@ const routes: Routes = [
   {
     path:'signup',
     component:SignupPage
-  }
+  },
+  { path:'**', redirectTo:'signin', pathMatch:'full' }
 
 ];
 
