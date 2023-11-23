@@ -10,7 +10,8 @@ const routes: Routes = [
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
-  },  {
+  },
+  {
     path: 'signin',
     loadChildren: () => import('./pages/signin/signin.module').then( m => m.SigninPageModule)
   },
@@ -38,6 +39,8 @@ const routes: Routes = [
     path: 'user-info',
     loadChildren: () => import('./pages/user-info/user-info.module').then( m => m.UserInfoPageModule)
   },
+  { path:'**',
+   redirectTo:'signin', pathMatch:'full' }
 
 ];
 
