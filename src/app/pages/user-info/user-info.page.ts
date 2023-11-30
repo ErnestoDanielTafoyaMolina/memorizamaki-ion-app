@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-user-info',
@@ -7,10 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserInfoPage implements OnInit {
 
-  constructor() { }
+  User = {
+    username:'',
+    email:'',
+    phone:'',
+    region:'',
+    img:'https://pixabay.com/es/photos/caf%C3%A9-capuchino-barista-cafe%C3%ADna-8388244/',
+  }
+  constructor(
+    private userService:UserService
+  ) { }
 
   ngOnInit() {
-    console.log("si")
-  }
+    this.userService.getUserInfo().subscribe(
+      (response:any)=>{
+        this.User = response;
+      },
+      (err:any)=>{
+        console.log(err);
+      }
+    );
+  };
 
-}
+};
