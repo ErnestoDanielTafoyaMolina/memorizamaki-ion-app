@@ -22,7 +22,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/signup/signup.module').then( m => m.SignupPageModule)
   },
   {
-    path: 'hiragana',
+    path: 'hiragana/:level',
     loadChildren: () => import('./pages/hiragana/hiragana.module').then( m => m.HiraganaPageModule),
     canActivate:[AuthGuard]
   },
@@ -37,7 +37,7 @@ const routes: Routes = [
     canActivate:[AuthGuard]
   },
   {
-    path: 'katakana',
+    path: 'katakana/:level',
     loadChildren: () => import('./pages/katakana/katakana.module').then( m => m.KatakanaPageModule),
     canActivate:[AuthGuard]
   },

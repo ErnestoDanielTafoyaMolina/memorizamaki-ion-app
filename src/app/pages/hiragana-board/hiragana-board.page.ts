@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HiraganaService } from 'src/app/services/hiragana.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-hiragana-board',
@@ -9,11 +10,9 @@ import { HiraganaService } from 'src/app/services/hiragana.service';
 export class HiraganaBoardPage implements OnInit {
 
   levels:any = []
-  constructor( private hiragana:HiraganaService ) { }
+  constructor( private hiragana:HiraganaService, private router:Router ) { }
 
   ngOnInit() {
-
-    console.log("Debería cargar esto que pedo")
     this.hiragana.getHiragana().subscribe(
       (response:any) => {
          this.levels = response.data;
@@ -23,5 +22,7 @@ export class HiraganaBoardPage implements OnInit {
       }
     )
   }
-
+  goToHiragana(level: any) {
+    this.router.navigate(['/hiragana', level]);
+  }
 }
