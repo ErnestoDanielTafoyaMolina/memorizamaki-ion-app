@@ -2,7 +2,7 @@
   <ion-toolbar>
     <ion-buttons slot="start">
     </ion-buttons>
-    <ion-title>Katakana</ion-title>
+    <ion-title>Katakana-board</ion-title>
     <ion-buttons slot="end">
       <ion-button routerLink="/">Home</ion-button>
     </ion-buttons>
@@ -15,4 +15,12 @@
       <ion-title size="large">katakana-board</ion-title>
     </ion-toolbar>
   </ion-header>
+  <div class="test" *ngFor="let level of levels">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>Katana</ion-card-subtitle>
+        <ion-card-title>Nivel {{level.level}}</ion-card-title>
+      </ion-card-header>
+    </ion-card>
+  </div>
 </ion-content>

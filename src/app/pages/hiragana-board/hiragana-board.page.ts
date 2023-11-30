@@ -12,6 +12,8 @@ export class HiraganaBoardPage implements OnInit {
   constructor( private hiragana:HiraganaService ) { }
 
   ngOnInit() {
+
+    console.log("Debería cargar esto que pedo")
     this.hiragana.getHiragana().subscribe(
       (response:any) => {
          this.levels = response.data;
