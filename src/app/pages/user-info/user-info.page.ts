@@ -10,6 +10,7 @@ export class UserInfoPage implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log("si")
   }
 
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+
 import { HiraganaService } from 'src/app/services/hiragana.service';
 
 @Component({
@@ -21,7 +21,7 @@ export class HiraganaPage implements OnInit {
         (response:any) => {
           this.Hiraganas = response.hiraganaInfo;
         },
-        (err:any) =>{
+        (err) =>{
           console.error(err)
         }
       )
