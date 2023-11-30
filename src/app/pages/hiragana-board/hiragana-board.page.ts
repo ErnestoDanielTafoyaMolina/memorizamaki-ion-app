@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HiraganaService } from 'src/app/services/hiragana.service';
 
 @Component({
   selector: 'app-hiragana-board',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HiraganaBoardPage implements OnInit {
 
-  constructor() { }
+  levels:any = []
+  constructor( private hiragana:HiraganaService ) { }
 
   ngOnInit() {
+    this.hiragana.getHiragana().subscribe(
+      (response:any) => {
+         this.levels = response.data;
+      },
+      (error:any) => {
+        console.error(error)
+      }
+    )
   }
 
 }

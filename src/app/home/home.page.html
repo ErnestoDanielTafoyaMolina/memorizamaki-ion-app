@@ -1,13 +1,37 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>HomePage</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+<ion-menu contentId="main-content">
+  <ion-header>
     <ion-toolbar>
-      <ion-title size="large">Home</ion-title>
+      <ion-title>Seleccion de tablero.</ion-title>
     </ion-toolbar>
   </ion-header>
-</ion-content>
+    <ion-list>
+        <ion-item>
+          <ion-nav-link class="ion-padding">Hiragana</ion-nav-link>
+        </ion-item>
+        <ion-item>
+          <ion-nav-link class="ion-padding">Katakana</ion-nav-link>
+        </ion-item>
+        <ion-item>
+          <ion-nav-link class="ion-padding">Información de usuario</ion-nav-link>
+        </ion-item>
+    </ion-list>
+</ion-menu>
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Memorizamaki</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+
+    Bienvenido a Memorizamaki.
+
+    Puedes selecciónar los juegos disponibles a continuación o bien puedes sencillamente
+    deslizar el menú para selecciónar tu juego y/o cerrar tu sesión.
+
+
+  </ion-content>
+</div>

@@ -40,7 +40,8 @@ const routes: Routes = [
     loadChildren: () => import('./pages/user-info/user-info.module').then( m => m.UserInfoPageModule)
   },
   { path:'**',
-   redirectTo:'signin', pathMatch:'full' }
+   redirectTo:'signin', pathMatch:'full' },
+
 
 ];
 
