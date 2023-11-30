@@ -10,7 +10,10 @@ import { Router } from '@angular/router';
 export class HiraganaBoardPage implements OnInit {
 
   levels:any = []
-  constructor( private hiragana:HiraganaService, private router:Router ) { }
+  constructor(
+    private hiragana:HiraganaService,
+    private router:Router
+  ) { }
 
   ngOnInit() {
     this.hiragana.getHiragana().subscribe(

@@ -16,7 +16,7 @@
     </ion-toolbar>
   </ion-header>
   <div class="test" *ngFor="let level of levels">
-    <ion-card>
+    <ion-card (click)="goToKatakanaLevel(level.level)">
       <ion-card-header>
         <ion-card-subtitle>Katana</ion-card-subtitle>
         <ion-card-title>Nivel {{level.level}}</ion-card-title>

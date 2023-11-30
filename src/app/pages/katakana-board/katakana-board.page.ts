@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { KatakanaService } from 'src/app/services/katakana.service';
 
 @Component({
@@ -9,7 +10,10 @@ import { KatakanaService } from 'src/app/services/katakana.service';
 export class KatakanaBoardPage implements OnInit {
 
   levels:any=[]
-  constructor( private katakanaService: KatakanaService ) { }
+  constructor(
+    private katakanaService: KatakanaService,
+    private router:Router
+    ) { }
 
   ngOnInit() {
     this.katakanaService.getKatakana().subscribe(
@@ -21,6 +25,10 @@ export class KatakanaBoardPage implements OnInit {
         console.error(error)
       }
     )
+  }
+
+  goToKatakanaLevel( level:any ){
+    this.router.navigate(['/katakana',level])
   }
 
 }

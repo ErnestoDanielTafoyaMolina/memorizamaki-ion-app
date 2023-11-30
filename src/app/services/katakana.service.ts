@@ -14,6 +14,6 @@ export class KatakanaService {
     return this.http.get<any>(this.URL+'/katakana');
   }
   getKatakanaByLevel( level:any ){
-    return this.http.get<any>(this.URL+'/katakana/'+level);
+    return this.http.get<any>(`${this.URL}/katakana/${level}`);
   }
 }

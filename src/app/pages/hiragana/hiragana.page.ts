@@ -21,7 +21,7 @@ export class HiraganaPage implements OnInit {
         (response:any) => {
           this.Hiraganas = response.hiraganaInfo;
         },
-        (err) =>{
+        (err:any) =>{
           console.error(err)
         }
       )
