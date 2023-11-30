@@ -9,6 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class KatakanaPage implements OnInit {
   Katakanas:any = []
+  matchedCards:any[] = []
   constructor(
     private katakana:KatakanaService,
     private activatedRoute:ActivatedRoute
@@ -27,5 +28,30 @@ export class KatakanaPage implements OnInit {
         }
       )
     });
+  }
+
+  flipCard(katakana:any) {
+    if (!katakana.isMatched) {
+      katakana.isFlipped = !katakana.isFlipped;
+    }
+  }
+
+  matchCards() {
+    for (let i = 0; i < this.Katakanas.length; i++) {
+      for (let j = i + 1; j < this.Katakanas.length; j++) {
+        if (this.Katakanas[i].id === this.Katakanas[j].id &&
+          this.Katakanas[i].isFlipped &&
+          this.Katakanas[j].isFlipped) {
+          this.Katakanas[i].isMatched = true;
+          this.Katakanas[j].isMatched = true;
+          this.matchedCards.push(this.Katakanas[i]);
+          this.matchedCards.push(this.Katakanas[j]);
+        }
+      }
+    }
+  }
+
+  ngAfterViewInit() {
+    this.matchCards();
   }
 }
