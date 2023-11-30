@@ -4,18 +4,19 @@
       <ion-title>Seleccion de tablero.</ion-title>
     </ion-toolbar>
   </ion-header>
-    <ion-list>
-        <ion-item>
-          <ion-nav-link class="ion-padding">Hiragana</ion-nav-link>
-        </ion-item>
-        <ion-item>
-          <ion-nav-link class="ion-padding">Katakana</ion-nav-link>
-        </ion-item>
-        <ion-item>
-          <ion-nav-link class="ion-padding">Información de usuario</ion-nav-link>
-        </ion-item>
-    </ion-list>
+  <ion-list class="ion-padding-top">
+    <ion-item>
+      <ion-nav-link routerLink="/hiragana-board" class="ion-padding">Hiragana</ion-nav-link>
+    </ion-item>
+    <ion-item>
+      <ion-nav-link routerLink="/katakana-board" class="ion-padding">Katakana</ion-nav-link>
+    </ion-item>
+    <ion-item>
+      <ion-nav-link (click)="logout()" class="ion-padding">Cerrar sesión</ion-nav-link>
+    </ion-item>
+  </ion-list>
 </ion-menu>
+
 <div class="ion-page" id="main-content">
   <ion-header>
     <ion-toolbar>
