@@ -1,5 +1,7 @@
 {
   "name": "memorizamaki",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular"
 }
