@@ -16,9 +16,14 @@
 
     <ion-card-content>
       <ion-thumbnail slot="start">
-        <ion-img [src]="User.img" alt="User Image"></ion-img>
+        <ion-img [src]="photo" alt="User Image">
+        </ion-img>
       </ion-thumbnail>
-
+      <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+        <ion-fab-button (click)="takePicture()">
+          <ion-icon name="camera"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
       <ion-list lines="none">
         <ion-item>
           <ion-icon name="mail-outline" slot="start"></ion-icon>
