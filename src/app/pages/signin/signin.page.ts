@@ -16,7 +16,8 @@ export class SigninPage implements OnInit {
   ngOnInit(){
     const token = localStorage.getItem('token');
     if(token){
-
+      console.log("Si hay token, no debería estar aqui")
+      this.router.navigate(['/'])
     }
   }
 

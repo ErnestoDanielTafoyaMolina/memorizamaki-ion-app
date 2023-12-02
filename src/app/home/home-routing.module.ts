@@ -19,7 +19,7 @@ const routes: Routes = [
 
   //rutas de uso para la app
   {
-    path: 'hiragana',
+    path: 'hiragana/:level',
     component: HiraganaPage,
     canActivate:[AuthGuard]
   },
@@ -29,7 +29,7 @@ const routes: Routes = [
     canActivate:[AuthGuard]
   },
   {
-    path: 'katakana',
+    path: 'katakana/:level',
     component: KatakanaPage,
     canActivate:[AuthGuard]
   },

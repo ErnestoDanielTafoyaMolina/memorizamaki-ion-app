@@ -20,9 +20,13 @@ export class SignupPage implements OnInit {
      private authService:AuthService
     ) { }
 
-  ngOnInit() {
-    console.log("Welcome to signup")
-  }
+    ngOnInit(){
+      const token = localStorage.getItem('token');
+      if(token){
+        console.log("Si hay token, no debería estar aqui")
+        this.router.navigate(['/'])
+      }
+    }
 
   onSignup(){
     this.authService.signUp(this.userData).subscribe(

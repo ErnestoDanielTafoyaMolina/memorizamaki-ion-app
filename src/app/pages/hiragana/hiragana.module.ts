@@ -8,6 +8,7 @@ import { HiraganaPageRoutingModule } from './hiragana-routing.module';
 
 import { HiraganaPage } from './hiragana.page';
 
+
 @NgModule({
   imports: [
     CommonModule,

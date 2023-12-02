@@ -1,13 +1,28 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <ion-buttons slot="start">
+    </ion-buttons>
     <ion-title>hiragana-board</ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/">Home</ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
+
+
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">hiragana-board</ion-title>
+      <ion-title size="large">Hiragana-board</ion-title>
     </ion-toolbar>
   </ion-header>
+  <div class="test" *ngFor="let level of levels">
+    <ion-card (click)="goToHiragana(level.level)">
+      <ion-card-header>
+        <ion-card-subtitle>Hiragana</ion-card-subtitle>
+        <ion-card-title>Nivel {{level.level}}</ion-card-title>
+      </ion-card-header>
+    </ion-card>
+  </div>
 </ion-content>
