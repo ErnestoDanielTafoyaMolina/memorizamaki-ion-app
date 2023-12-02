@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Geolocation } from '@capacitor/geolocation';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -13,14 +14,17 @@ export class SignupPage implements OnInit {
     email: '',
     password: '',
     phoneNumber: '',
-    region: '',
+    region: {},
   };
   constructor(
      private router:Router,
      private authService:AuthService
     ) { }
 
-    ngOnInit(){
+    async ngOnInit(){
+      const coordinates = await Geolocation.getCurrentPosition();
+      this.userData.region=coordinates;
+      console.log('Current position:', coordinates);
       const token = localStorage.getItem('token');
       if(token){
         console.log("Si hay token, no debería estar aqui")
@@ -37,4 +41,7 @@ export class SignupPage implements OnInit {
       }
     )
   }
+
+
+
 }

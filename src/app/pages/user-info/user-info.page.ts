@@ -17,7 +17,7 @@ export class UserInfoPage implements OnInit {
     username:'',
     email:'',
     phone:'',
-    region:'',
+    region:{},
     img:'',
   }
 
@@ -41,31 +41,13 @@ export class UserInfoPage implements OnInit {
     const image = await Camera.getPhoto({
       quality: 50,
       allowEditing: false,
-      resultType: CameraResultType.Base64,
+      resultType: CameraResultType.Uri,
       // source: CameraSource.Camera
     });
     // Can be set to the src of an image now
     if(image){
-      this.savePhoto(image.base64String!);
+      this.photo = image.webPath;
+      await this.userService.postUserImage(this.photo)
     }
-  }
-  async savePhoto(photo:string){
-    await Filesystem.writeFile({
-      path: 'userPhoto.jpg',
-      data: photo,
-      directory: Directory.Documents,
-      // encoding: Encoding.UTF8,
-    });
-  }
-  async viewPhoto() {
-    const photoData: any = await Filesystem.readFile({
-      path: 'userPhoto.jpg',
-      directory: Directory.Documents,
-    });
-  
-    const imageBlob = await fetch(photoData.uri, { method: 'GET' }).then(response => response.blob());
-    const imageURL = URL.createObjectURL(imageBlob);
-  
-    this.photo = imageURL;
   }
 };

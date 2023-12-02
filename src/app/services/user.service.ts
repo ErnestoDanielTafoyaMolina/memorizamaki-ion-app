@@ -16,4 +16,7 @@ export class UserService {
   getUserInfo(){
     return this.http.get<any>(this.URL+'/profile');
   }
+  postUserImage(img:any){
+    return this.http.patch<any>(this.URL+'/update-img', img)
+  }
 }
